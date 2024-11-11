@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+.env/
+
+# Browser
+chromedriver-win64/
+chrome-linux64/
+
+# Output
+output/
+
+# Package files and build artifacts
+*.egg-info/
+dist/
+build/
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+
+# Streamlit specific
+.streamlit/
+
+# VS Code settings (if using VS Code)
+.vscode/
+
+# Scrappy output
+.output
+
+# Browser
+chrome-linux64
+chrome-linux64.zip

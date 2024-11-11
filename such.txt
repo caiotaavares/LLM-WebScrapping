@@ -1,0 +1,408 @@
+python3 -m venv venv
+source ./.venv/bin/activate
+
+pip install -r requirements.txt 
+
+streamlit run streamlit_app.py
+
+curl http://localhost:1234/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "llama-3.2-1b-instruct",
+    "messages": [
+      { "role": "system", "content": "\n    You are an intelligent text extraction and conversion assistant. Your task is to extract structured information \n                        from the given text and convert it into a pure JSON format. The JSON should contain only the structured data extracted from the text, \n                        with no additional commentary, explanations, or extraneous information. \n                        You could encounter cases where you can't find the data of the fields you have to extract or the data will be in a foreign language.\n                        Please process the following text and provide the output in pure JSON format with no words before or after the JSON:\n    Please ensure the output strictly follows this schema:\n\n    {\n        \"listings\": [\n            {\n                \"pokemon name\": \"string\",\n\"price\": \"string\"\n            }\n        ]\n    } " },
+      { "role": "user", "content": "Extract the following information from the provided text:\nPage content:\n\n[Home](https://scrapeme.live) / Product\n\nSort by popularity Sort by average rating Sort by newness Sort by price: low\nto high Sort by price: high to low\n\nShowing 1–16 of 755 results\n\n  * 1\n  * [2](https://scrapeme.live/shop/page/2/)\n  * [3](https://scrapeme.live/shop/page/3/)\n  * [4](https://scrapeme.live/shop/page/4/)\n  * …\n  * [46](https://scrapeme.live/shop/page/46/)\n  * [47](https://scrapeme.live/shop/page/47/)\n  * [48](https://scrapeme.live/shop/page/48/)\n  * [→](https://scrapeme.live/shop/page/2/)\n\n  * [![](https://scrapeme.live/wp-content/uploads/2018/08/001-350x350.png)Bulbasaur £63.00 ](https://scrapeme.live/shop/Bulbasaur/)[Add to basket](/shop/?add-to-cart=759)\n  * [![](https://scrapeme.live/wp-content/uploads/2018/08/002-350x350.png)Ivysaur £87.00 ](https://scrapeme.live/shop/Ivysaur/)[Add to basket](/shop/?add-to-cart=729)\n  * [![](https://scrapeme.live/wp-content/uploads/2018/08/003-350x350.png)Venusaur £105.00 ](https://scrapeme.live/shop/Venusaur/)[Add to basket](/shop/?add-to-cart=730)\n  * [![](https://scrapeme.live/wp-content/uploads/2018/08/004-350x350.png)Charmander £48.00 ](https://scrapeme.live/shop/Charmander/)[Add to basket](/shop/?add-to-cart" }
+    ],
+    "temperature": 0.7,
+    "max_tokens": -1,
+    "stream": false
+}'
+
+curl http://localhost:1234/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "llama-3.2-1b-instruct",
+    "messages": [
+      { "role": "system", "content": "\n    You are an intelligent text extraction and conversion assistant. Your task is to extract structured information \n                        from the given text and convert it into a pure JSON format. The JSON should contain only the structured data extracted from the text, \n                        with no additional commentary, explanations, or extraneous information. \n                        You could encounter cases where you can't find the data of the fields you have to extract or the data will be in a foreign language.\n                        Please process the following text and provide the output in pure JSON format with no words before or after the JSON:\n    Please ensure the output strictly follows this schema:\n\n    {\n        \"listings\": [\n            {\n                \"pokemon name\": \"string\",\n\"price\": \"string\"\n            }\n        ]\n    } " },
+      { "role": "user", "content": "
+</div><ul class="products columns-4">
+<li class="post-759 product type-product status-publish has-post-thumbnail product_cat-pokemon product_cat-seed product_tag-bulbasaur product_tag-overgrow product_tag-seed first instock sold-individually taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Bulbasaur/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/001-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/001-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/001-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/001-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/001-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/001-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/001.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Bulbasaur</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>63.00</span></span>
+</a><a href="/shop/?add-to-cart=759" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="759" data-product_sku="4391" aria-label="Add &ldquo;Bulbasaur&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+<li class="post-729 product type-product status-publish has-post-thumbnail product_cat-pokemon product_cat-seed product_tag-ivysaur product_tag-overgrow product_tag-seed instock sold-individually taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Ivysaur/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/002-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/002-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/002-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/002-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/002-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/002-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/002.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Ivysaur</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>87.00</span></span>
+</a><a href="/shop/?add-to-cart=729" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="729" data-product_sku="7227" aria-label="Add &ldquo;Ivysaur&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+<li class="post-730 product type-product status-publish has-post-thumbnail product_cat-pokemon product_cat-seed product_tag-overgrow product_tag-seed product_tag-venusaur instock taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Venusaur/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/003-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/003-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/003-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/003-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/003-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/003-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/003.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Venusaur</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>105.00</span></span>
+</a><a href="/shop/?add-to-cart=730" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="730" data-product_sku="7036" aria-label="Add &ldquo;Venusaur&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+<li class="post-731 product type-product status-publish has-post-thumbnail product_cat-lizard product_cat-pokemon product_tag-blaze product_tag-charmander product_tag-lizard last instock sold-individually taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Charmander/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/004-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/004-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/004-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/004-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/004-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/004-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/004.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Charmander</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>48.00</span></span>
+</a><a href="/shop/?add-to-cart=731" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="731" data-product_sku="9086" aria-label="Add &ldquo;Charmander&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+</body>" }
+    ],
+    "temperature": 0.7,
+    "max_tokens": -1,
+    "stream": false
+}'
+
+curl http://localhost:1234/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer lm-studio" \
+  -d '{
+    "messages": [
+      {
+        "role": "system",
+        "content": "\n    You are an intelligent text extraction and conversion assistant. Your task is to extract structured information \n                        from the given text and convert it into a pure JSON format. The JSON should contain only the structured data extracted from the text, \n                        with no additional commentary, explanations, or extraneous information. \n                        You could encounter cases where you can't find the data of the fields you have to extract or the data will be in a foreign language.\n                        Please process the following text and provide the output in pure JSON format with no words before or after the JSON:\n    Please ensure the output strictly follows this schema:\n\n    {\n        \"listings\": [\n            {\n                \"pokemon name\": \"string\",\n\"price\": \"string\"\n            }\n        ]\n    } "
+      },
+      {
+        "role": "user",
+        "content": "
+</div><ul class="products columns-4">
+<li class="post-759 product type-product status-publish has-post-thumbnail product_cat-pokemon product_cat-seed product_tag-bulbasaur product_tag-overgrow product_tag-seed first instock sold-individually taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Bulbasaur/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/001-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/001-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/001-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/001-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/001-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/001-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/001.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Bulbasaur</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>63.00</span></span>
+</a><a href="/shop/?add-to-cart=759" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="759" data-product_sku="4391" aria-label="Add &ldquo;Bulbasaur&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+<li class="post-729 product type-product status-publish has-post-thumbnail product_cat-pokemon product_cat-seed product_tag-ivysaur product_tag-overgrow product_tag-seed instock sold-individually taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Ivysaur/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/002-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/002-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/002-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/002-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/002-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/002-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/002.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Ivysaur</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>87.00</span></span>
+</a><a href="/shop/?add-to-cart=729" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="729" data-product_sku="7227" aria-label="Add &ldquo;Ivysaur&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+<li class="post-730 product type-product status-publish has-post-thumbnail product_cat-pokemon product_cat-seed product_tag-overgrow product_tag-seed product_tag-venusaur instock taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Venusaur/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/003-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/003-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/003-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/003-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/003-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/003-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/003.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Venusaur</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>105.00</span></span>
+</a><a href="/shop/?add-to-cart=730" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="730" data-product_sku="7036" aria-label="Add &ldquo;Venusaur&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+<li class="post-731 product type-product status-publish has-post-thumbnail product_cat-lizard product_cat-pokemon product_tag-blaze product_tag-charmander product_tag-lizard last instock sold-individually taxable shipping-taxable purchasable product-type-simple">
+	<a href="https://scrapeme.live/shop/Charmander/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="324" height="324" src="https://scrapeme.live/wp-content/uploads/2018/08/004-350x350.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="https://scrapeme.live/wp-content/uploads/2018/08/004-350x350.png 350w, https://scrapeme.live/wp-content/uploads/2018/08/004-150x150.png 150w, https://scrapeme.live/wp-content/uploads/2018/08/004-300x300.png 300w, https://scrapeme.live/wp-content/uploads/2018/08/004-100x100.png 100w, https://scrapeme.live/wp-content/uploads/2018/08/004-250x250.png 250w, https://scrapeme.live/wp-content/uploads/2018/08/004.png 475w" sizes="(max-width: 324px) 100vw, 324px" /><h2 class="woocommerce-loop-product__title">Charmander</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>48.00</span></span>
+</a><a href="/shop/?add-to-cart=731" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="731" data-product_sku="9086" aria-label="Add &ldquo;Charmander&rdquo; to your basket" rel="nofollow">Add to basket</a></li>
+</body>
+</html>
+"
+      }
+    ],
+    "model": "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF",
+    "temperature": 0.7
+  }'
+
+
+import streamlit as st
+from streamlit_tags import st_tags_sidebar
+import pandas as pd
+import json
+from datetime import datetime
+from scraper import fetch_html_selenium, save_raw_data, format_data, save_formatted_data, calculate_price, html_to_markdown_with_readability, create_dynamic_listing_model, create_listings_container_model, scrape_url
+from pagination_detector import detect_pagination_elements, PaginationData
+import re
+from urllib.parse import urlparse
+from assets import PRICING
+import os
+from pydantic import BaseModel
+
+
+def serialize_pydantic(obj):
+    if isinstance(obj, BaseModel):
+        return obj.dict()
+    raise TypeError(f'Objeto do tipo {obj.__class__.__name__} não é serializável em JSON')
+
+# Initialize Streamlit app
+st.set_page_config(page_title="Raspador de Dados de Farmácias", page_icon="💊")
+st.title("Raspador de Dados de Farmácias 💊")
+
+# Initialize session state variables if they don't exist
+if 'results' not in st.session_state:
+    st.session_state['results'] = None
+if 'perform_scrape' not in st.session_state:
+    st.session_state['perform_scrape'] = False
+
+# Sidebar components
+st.sidebar.title("Configurações")
+model_selection = st.sidebar.selectbox("Modelo", options=list(PRICING.keys()), index=0)
+url_input = st.sidebar.text_input("Coloque URLs separadas por espaços em branco")
+
+# Add toggle to show/hide tags field
+show_tags = st.sidebar.toggle("Raspar")
+
+# Conditionally show tags input based on the toggle
+tags = []
+if show_tags:
+    tags = st_tags_sidebar(
+        label='Dados a extrair', 
+        text='Enter para adicionar a tag',
+        value=[
+            "Nome",
+            "Marca",
+            "Avaliação",
+            "Informação Adicional"
+        ],
+        suggestions=[],
+        maxtags=-1,
+        key='tags_input'
+    )
+
+st.sidebar.markdown("---")
+# Add pagination toggle and input
+use_pagination = st.sidebar.toggle("Ativar a Paginação")
+pagination_details = None
+if use_pagination:
+    pagination_details = st.sidebar.text_input("Digite Detalhes de Paginação (opcional)", 
+        help="Descreva como navegar pelas páginas (ex.: classe do botão 'Próximo', padrão da URL)")
+
+st.sidebar.markdown("---")
+
+
+def generate_unique_folder_name(url):
+    timestamp = datetime.now().strftime('%Y_%m_%d__%H_%M_%S')
+    
+    # Parse the URL
+    parsed_url = urlparse(url)
+    
+    # Extract the domain name
+    domain = parsed_url.netloc or parsed_url.path.split('/')[0]
+    
+    # Remove 'www.' if present
+    domain = re.sub(r'^www\.', '', domain)
+    
+    # Remove any non-alphanumeric characters and replace with underscores
+    clean_domain = re.sub(r'\W+', '_', domain)
+    
+    return f"{clean_domain}_{timestamp}"
+
+def scrape_multiple_urls(urls, fields, selected_model):
+    output_folder = os.path.join('output', generate_unique_folder_name(urls[0]))
+    os.makedirs(output_folder, exist_ok=True)
+    
+    total_input_tokens = 0
+    total_output_tokens = 0
+    total_cost = 0
+    all_data = []
+    first_url_markdown = None
+    
+    for i, url in enumerate(urls, start=1):
+        raw_html = fetch_html_selenium(url)
+        markdown = html_to_markdown_with_readability(raw_html)
+        if i == 1:
+            first_url_markdown = markdown
+        
+        input_tokens, output_tokens, cost, formatted_data = scrape_url(url, fields, selected_model, output_folder, i, markdown)
+        total_input_tokens += input_tokens
+        total_output_tokens += output_tokens
+        total_cost += cost
+        all_data.append(formatted_data)
+    
+    return output_folder, total_input_tokens, total_output_tokens, total_cost, all_data, first_url_markdown
+
+# Define the scraping function
+def perform_scrape():
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    raw_html = fetch_html_selenium(url_input)
+    markdown = html_to_markdown_with_readability(raw_html)
+    save_raw_data(markdown, timestamp)
+    
+    # Detect pagination if enabled
+    pagination_info = None
+    if use_pagination:
+        pagination_data, token_counts, pagination_price = detect_pagination_elements(
+            url_input, pagination_details, model_selection, markdown
+        )
+        pagination_info = {
+            "page_urls": pagination_data.page_urls,
+            "token_counts": token_counts,
+            "price": pagination_price
+        }
+    
+    # Initialize token and cost variables with default values
+    input_tokens = 0
+    output_tokens = 0
+    total_cost = 0
+    
+    if show_tags:
+        DynamicListingModel = create_dynamic_listing_model(tags)
+        DynamicListingsContainer = create_listings_container_model(DynamicListingModel)
+        formatted_data, tokens_count = format_data(
+            markdown, DynamicListingsContainer, DynamicListingModel, model_selection
+        )
+        input_tokens, output_tokens, total_cost = calculate_price(tokens_count, model=model_selection)
+        df = save_formatted_data(formatted_data, timestamp)
+    else:
+        formatted_data = None
+        df = None
+
+    return df, formatted_data, markdown, input_tokens, output_tokens, total_cost, timestamp, pagination_info
+
+if st.sidebar.button("Raspar"):
+    with st.spinner('Por favor, aguarde... Os dados estão sendo extraídos.'):
+        urls = url_input.split()
+        field_list = tags
+        output_folder, total_input_tokens, total_output_tokens, total_cost, all_data, first_url_markdown = scrape_multiple_urls(urls, field_list, model_selection)
+        
+        # Perform pagination if enabled and only one URL is provided
+        pagination_info = None
+        if use_pagination and len(urls) == 1:
+            try:
+                pagination_result = detect_pagination_elements(
+                    urls[0], pagination_details, model_selection, first_url_markdown
+                )
+                
+                if pagination_result is not None:
+                    pagination_data, token_counts, pagination_price = pagination_result
+                    
+                    # Handle both PaginationData objects and dictionaries
+                    if isinstance(pagination_data, PaginationData):
+                        page_urls = pagination_data.page_urls
+                    elif isinstance(pagination_data, dict):
+                        page_urls = pagination_data.get("page_urls", [])
+                    else:
+                        page_urls = []
+                    
+                    pagination_info = {
+                        "page_urls": page_urls,
+                        "token_counts": token_counts,
+                        "price": pagination_price
+                    }
+                else:
+                    st.warning("Detecção de paginação retornou None. Nenhuma informação de paginação disponível.")
+            except Exception as e:
+                st.error(f"Ocorreu um erro durante a detecção de paginação: {e}")
+                pagination_info = {
+                    "page_urls": [],
+                    "token_counts": {"input_tokens": 0, "output_tokens": 0},
+                    "price": 0.0
+                }
+        
+        st.session_state['results'] = (all_data, None, first_url_markdown, total_input_tokens, total_output_tokens, total_cost, output_folder, pagination_info)
+        st.session_state['perform_scrape'] = True
+
+# Display results if they exist in session state
+if st.session_state['results']:
+    all_data, _, _, input_tokens, output_tokens, total_cost, output_folder, pagination_info = st.session_state['results']
+    
+    # Display scraping details in sidebar only if scraping was performed and the toggle is on
+    if all_data and show_tags:
+        st.sidebar.markdown("---")
+        st.sidebar.markdown("### Detalhes da Raspagem")
+        st.sidebar.markdown("#### Uso de Tokens")
+        st.sidebar.markdown(f"*Tokens de Entrada:* {input_tokens}")
+        st.sidebar.markdown(f"*Tokens de Saída:* {output_tokens}")
+        st.sidebar.markdown(f"**Custo Total:** :green-background[**${total_cost:.4f}**]")
+
+        # Display scraped data in main area
+        st.subheader("Dados Extraídos/Analisados")
+        for i, data in enumerate(all_data, start=1):
+            st.write(f"Data from URL {i}:")
+            
+            # Handle string data (convert to dict if it's JSON)
+            if isinstance(data, str):
+                try:
+                    data = json.loads(data)
+                except json.JSONDecodeError:
+                    st.error(f"Falha ao analisar dados como JSON para URL {i}")
+                    continue
+            
+            if isinstance(data, dict):
+                if 'listings' in data and isinstance(data['listings'], list):
+                    df = pd.DataFrame(data['listings'])
+                else:
+                    # If 'listings' is not in the dict or not a list, use the entire dict
+                    df = pd.DataFrame([data])
+            elif hasattr(data, 'listings') and isinstance(data.listings, list):
+                # Handle the case where data is a Pydantic model
+                listings = [item.dict() for item in data.listings]
+                df = pd.DataFrame(listings)
+            else:
+                st.error(f"Formato de dados inesperado para URL {i}")
+                continue
+            
+            # Display the dataframe
+            st.dataframe(df, use_container_width=True)
+
+        # Download options
+        st.subheader("Opções de Download")
+        col1, col2 = st.columns(2)
+        with col1:
+            json_data = json.dumps(all_data, default=lambda o: o.dict() if hasattr(o, 'dict') else str(o), indent=4)
+            st.download_button(
+                "Baixar JSON",
+                data=json_data,
+                file_name="scraped_data.json"
+            )
+        with col2:
+            # Convert all data to a single DataFrame
+            all_listings = []
+            for data in all_data:
+                if isinstance(data, str):
+                    try:
+                        data = json.loads(data)
+                    except json.JSONDecodeError:
+                        continue
+                if isinstance(data, dict) and 'listings' in data:
+                    all_listings.extend(data['listings'])
+                elif hasattr(data, 'listings'):
+                    all_listings.extend([item.dict() for item in data.listings])
+                else:
+                    all_listings.append(data)
+            
+            combined_df = pd.DataFrame(all_listings)
+            st.download_button(
+                "Download CSV",
+                data=combined_df.to_csv(index=False),
+                file_name="scraped_data.csv"
+            )
+
+        st.success(f"Scraping completed. Results saved in {output_folder}")
+
+    # Add pagination details to sidebar
+    if pagination_info and use_pagination:
+        st.markdown("---")
+        st.markdown("### Detalhes de Paginação")
+        st.sidebar.markdown(f"**Número de páginas:** {len(pagination_info['page_urls'])}")
+        st.sidebar.markdown("#### Uso de tokens para paginação")
+        st.sidebar.markdown(f"*Input Tokens:* {pagination_info['token_counts']['input_tokens']}")
+        st.sidebar.markdown(f"*Output Tokens:* {pagination_info['token_counts']['output_tokens']}")
+        st.sidebar.markdown(f"**Custo da paginação:** :red-background[**${pagination_info['price']:.4f}**]")
+
+        st.markdown("---")
+        st.subheader("Informações da paginação")
+        pagination_df = pd.DataFrame(pagination_info["page_urls"], columns=["Page URLs"])
+        
+        st.dataframe(
+            pagination_df,
+            column_config={
+                "Page URLs": st.column_config.LinkColumn("Page URLs")
+            },use_container_width=True
+        )
+
+        # Create columns for download buttons
+        col1, col2 = st.columns(2)
+        with col1:
+            st.download_button(
+                "Baixar JSON de Paginação", 
+                data=json.dumps(pagination_info["page_urls"], indent=4), 
+                file_name=f"pagination_urls.json"
+            )
+        with col2:
+            st.download_button(
+                "Baixar CSV de Paginação", 
+                data=pagination_df.to_csv(index=False), 
+                file_name=f"pagination_urls.csv"
+            )
+
+    # Display combined totals only if both scraping and pagination were performed and both toggles are on
+    if all_data and pagination_info and show_tags and use_pagination:
+        st.markdown("---")
+        total_input_tokens = input_tokens + pagination_info['token_counts']['input_tokens']
+        total_output_tokens = output_tokens + pagination_info['token_counts']['output_tokens']
+        total_combined_cost = total_cost + pagination_info['price']
+        st.markdown("### Custos totais (Incluindo Paginação)")
+        st.markdown(f"**Total Input Tokens:** {total_input_tokens}")
+        st.markdown(f"**Total Output Tokens:** {total_output_tokens}")
+        st.markdown(f"**Custo total:** :green[**${total_combined_cost:.4f}**]")
+
+# Add a clear results button
+if st.sidebar.button("Limpar resultados"):
+    st.session_state['results'] = None
+    st.session_state['perform_scrape'] = False
+    st.rerun()
+            

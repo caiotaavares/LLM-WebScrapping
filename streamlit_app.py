@@ -87,7 +87,7 @@ if num_urls <= 1:
     st.sidebar.markdown("---")
 
     # Attended mode toggle
-    attended_mode = st.sidebar.toggle("Modo Guiado")
+    attended_mode = st.sidebar.toggle("Modo Guiado (Util para avisos de cookies)")
 else:
     # Multiple URLs entered; disable Pagination and Attended Mode
     use_pagination = False

@@ -51,7 +51,7 @@ def setup_selenium(attended_mode=False):
     chrome_path = os.path.abspath("./chrome-linux64/chrome")
 
     options = Options()
-    service = Service(ChromeDriverManager().install())
+    service = Service(ChromeDriverManager(driver_version="130.0.6723.116").install())
 
     # Apply headless options based on whether the code is running in Docker
     if is_running_in_docker():

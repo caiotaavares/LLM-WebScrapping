@@ -73,11 +73,13 @@ if show_tags:
 
 st.sidebar.markdown("---")
 
+pagination_details = ""
 # Conditionally display Pagination and Attended Mode options
 if num_urls <= 1:
     # Pagination settings
     use_pagination = st.sidebar.toggle("Paginação")
-    pagination_details = ""
+    pagination_details = ""  # Default value
+
     if use_pagination:
         pagination_details = st.sidebar.text_input(
             "Digite Detalhes de Paginação (opcional)",
@@ -93,9 +95,10 @@ else:
     use_pagination = False
     attended_mode = False
     # Inform the user
-    st.sidebar.info("Paginação e Modo guiado são desativados com múltiplas urls.")
+    st.sidebar.info("Paginação e Modo guiado são desativados com múltiplas URLs.")
 
 st.sidebar.markdown("---")
+
 
 
 
